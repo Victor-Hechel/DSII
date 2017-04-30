@@ -1,0 +1,7 @@
+﻿CREATE TABLE contatos (id SERIAL PRIMARY KEY, nome VARCHAR(50), endereco VARCHAR(50)); 
+
+INSERT INTO contatos(nome, endereco) VALUES('Maixae', 'fjkdssdjksdk');
+
+CREATE TABLE telefones(id SERIAL PRIMARY KEY, numero VARCHAR(20), id_contato INTEGER REFERENCES contatos(id));
+
+INSERT INTO telefones(numero, id_contato) VALUES('484282982', 1);
