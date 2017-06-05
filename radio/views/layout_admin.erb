@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/">Rádio do Bicho</a>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                	<li>
+                        <a href="/protected/comunicador">Cadastrar Comunicador</a>
+                    </li>
+                    <li>
+                        <a href="/protected/programa">Cadastrar Programa</a>
+                    </li>
+                    <li>
+                        <a href="/programacao">Ver programação</a>
+                    </li>
+                    <li>
+                        <a href="/comunicadores">Ver comunicadores</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+    <%= yield %>
+    	
+    </div>
+</body>
+</html>

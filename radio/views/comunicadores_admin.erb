@@ -1,0 +1,25 @@
+<h1>Comunicadores</h1>
+<div class="row">
+	<div class="col-sm-offset-3 col-sm-6" id="fundo">
+		<% @comunicadores.each do |comunicador| %>
+			<div class="row">
+				<div class="col-sm-12">
+					<img class="col-sm-5" src="uploads/comunicadores/<%=comunicador.formaImagem()%>">
+					<div class="col-sm-7">
+						<div class="row">
+							<h3><%=comunicador.nome %></h3>
+						</div>
+						<div class="row">
+							<a href="/protected/excluirComunicador/<%=comunicador.id%>" class='btn btn-default btn-block'>Excluir</a>
+						</div>
+						<div class="row">
+							<a href="/protected/editarComunicador/<%=comunicador.id%>" class='btn btn-default btn-block'>Editar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		<% end %>
+	</div>
+</div>
+

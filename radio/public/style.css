@@ -1,0 +1,27 @@
+body{
+	background-image: url('background.jpg');
+}
+
+.img-responsive{
+	margin: 0 auto;
+}
+
+h1{
+	text-align: center;
+	color: white;
+}
+
+#fundo{
+	background-color: white;
+	padding: 10px;
+	border: 1px solid;
+	border-radius: 10px;
+}
+
+.row{
+	margin-top: 20px;
+}
+
+.bold{
+	font-weight: bold;
+}
