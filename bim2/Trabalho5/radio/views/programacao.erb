@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programacao</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+</head>
+<body>
+	<h1>Programação</h1>
+	<table border='1' class="table" id="fundo">
+		<tr>
+			<th>Segunda</th>
+			<th>Terca</th>
+			<th>Quarta</th>
+			<th>Quinta</th>
+			<th>Sexta</th>
+			<th>Sábado</th>
+			<th>Domingo</th>
+		</tr>
+		<% i = 0
+			while ((i < @segunda.size) || (i < @terca.size) ||
+				  (i < @quarta.size) || (i < @quinta.size) ||
+				  (i < @sexta.size) || (i < @sabado.size) || (i < @domingo.size)) 
+			%>
+
+			<tr>
+
+				<td><%  if(@segunda[i] != nil) %>
+						<a href="/programa/<%= @segunda[i].id %>"><%= @segunda[i].nome %></a>
+					<% end %></td>
+				<td><%  if(@terca[i] != nil) %>
+						<a href="/programa/<%= @terca[i].id %>"><%= @terca[i].nome %></a>
+					<% end %></td>
+				<td><%  if(@quarta[i] != nil) %>
+						<a href="/programa/<%= @quarta[i].id %>"><%= @quarta[i].nome %></a>
+					<% end %></td>
+				<td><%  if(@quinta[i] != nil) %>
+						<a href="/programa/<%= @quinta[i].id %>"><%= @quinta[i].nome %></a>
+					<% end %></td>
+				<td><%  if(@sexta[i] != nil) %>
+						<a href="/programa/<%= @sexta[i].id %>"><%= @sexta[i].nome %></a>
+					<% end %></td>
+				<td><%  if(@sabado[i] != nil) %>
+						<a href="/programa/<%= @sabado[i].id %>"><%= @sabado[i].nome %></a>
+					<% end %></td>
+				<td><%  if(@domingo[i] != nil) %>
+						<a href="/programa/<%= @domingo[i].id %>"><%= @domingo[i].nome %></a>
+					<% end %></td>
+			</tr>
+
+				
+			<% i = i + 1 
+			   end %>
+	</table>
+	<script type="text/javascript">
+		setInterval(function(){
+			var col = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+			var elementos1 = document.getElementsByTagName("td");
+			var elementos2 = document.getElementsByTagName("th");
+
+
+			for (var i = 0; i < elementos1.length; i++) {
+				elementos1[i].style.backgroundColor = col;
+				elementos2[i].style.backgroundColor = col;
+			}
+
+
+		},500);
+	</script>
+</body>
+</html>

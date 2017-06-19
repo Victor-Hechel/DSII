@@ -1,0 +1,54 @@
+<h1><%=@programa.nome %></h1>
+<div class="row">
+<img id = 'fausto' width="150" height="250" id='giratorio' src="/images/fausto.png">
+
+	<div class="col-sm-offset-3 col-sm-6" id="fundo">
+
+		<div class="row">
+
+			<div class="col-sm-12">
+				<img class="col-sm-5" src="/uploads/programas/<%=@programa.formaImagem()%>">
+				<div class="col-sm-7">
+					<div class="row">
+						<p><span class="bold">Comunicador: </span><%= @comunicador.nome %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Duração: </span><%= @programa.duracao %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Horário início: </span><%= @programa.inicio %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Horário fim: </span><%= @programa.fim %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Dia da semana: </span><%= @programa.dia %></p>
+					</div>
+					<div class="row">
+						<a href="/protected/deletarPrograma/<%=@programa.id%>" class='btn btn-default btn-block'>Excluir</a>
+					</div>
+					<div class="row">
+						<a href="/protected/editarPrograma/<%=@programa.id%>" class='btn btn-default btn-block'>Editar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	var angle = 0;
+
+	$('#fausto').on('mouseenter', function() {
+    	this.iid = setInterval(function() {
+    	angle += 1;
+	    $('#fausto').css('transform','rotate(' + angle + 'deg)');
+    }, 1);
+	}).on('mouseleave', function(){
+    	this.iid && clearInterval(this.iid);
+	});
+
+</script>

@@ -1,0 +1,34 @@
+<h1>Comunicadores</h1>
+<div class="row">
+	<div class="col-sm-offset-3 col-sm-6" id="fundo">
+		<% @comunicadores.each do |comunicador| %>
+			<div class="row">
+				<div class="col-sm-12">
+					<img class="col-sm-5" src="uploads/comunicadores/<%=comunicador.formaImagem()%>">
+					<div class="col-sm-7">
+						<div class="row">
+							<h3><%=comunicador.nome %></h3>
+						</div>
+						<div class="row">
+							<button id = "<%=comunicador.id%>" class='btn btn-default btn-block excluir'>Excluir</a>
+						</div>
+						<div class="row">
+							<a href="/protected/editarComunicador/<%=comunicador.id%>" class='btn btn-default btn-block'>Editar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		<% end %>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).on("click", ".excluir", function(){
+		const elemento = $(this);
+		$.post("/protected/excluirComunicador/" + elemento.attr("id"), function(){
+			elemento.parents().eq(3).remove();
+		});
+	});
+</script>

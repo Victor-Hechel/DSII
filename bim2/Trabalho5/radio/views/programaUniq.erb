@@ -1,0 +1,31 @@
+<img width="150" height="250" id='giratorio' src="/images/fausto.png">
+dskffskfsfsfsjfs,msf,mfsm,s
+<h1><%=@programa.nome %></h1>
+<div class="row">
+	<div class="col-sm-offset-3 col-sm-6" id="fundo">
+		<div class="row">
+			<div class="col-sm-12">
+				<img class="col-sm-5" src="/uploads/programas/<%=@programa.formaImagem()%>">
+				<div class="col-sm-7">
+					<div class="row">
+						<p><span class="bold">Comunicador: </span><%= @comunicador.nome %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Duração: </span><%= @programa.duracao %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Horário início: </span><%= @programa.inicio %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Horário fim: </span><%= @programa.fim %></p>
+					</div>
+					<div class="row">
+						<p><span class="bold">Dia da semana: </span><%= @programa.dia %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+</div>
+

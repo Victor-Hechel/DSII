@@ -1,0 +1,38 @@
+<h1>Login</h1>
+<form method="post" action="/logar" class="form-horizontal" onsubmit="return verifica()">
+	<div class="row">
+		<div class="col-sm-offset-3 col-sm-6" id="fundo">
+			<h3></h3>
+			<div class="form-group">
+			<label for="login" class="col-sm-3 control-label">Login: </label>
+			<div class="col-sm-8">
+				<input type="text" name="login" id="login" class="form-control" placeholder="Digite o seu login...">			
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="senha" class="col-sm-3 control-label">Password: </label>
+			<div class="col-sm-8">
+				<input type="password" name="senha" id="senha" class="form-control" placeholder="Digite sua senha...">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-8">
+				<input type="submit" value="Logar" class="btn btn-default btn-block">		
+			</div>
+		</div>	
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+	function verifica(){
+		var login = document.getElementById("login").value;
+		var senha = document.getElementById("senha").value;
+		if (login.length > 0 && senha.length > 0) {
+			return true;
+		}else{
+			document.getElementsByTagName("h3")[0].innerHTML = "Digite no formulário B A B A C A!";
+			return false;
+		}
+	}
+</script>
