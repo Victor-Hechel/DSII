@@ -2,7 +2,6 @@
 
 require 'sinatra'
 require 'erb'
-require 'json'
 
 #modelos
 require_relative 'models/comunicador.rb'
@@ -102,14 +101,6 @@ get '/programacao' do
 	end
 end
 
-get '/comunicadorAjax/:id' do
-	dao = ComunicadorDAO.new
-	puts "---------------"
-	puts dao.getComunicador(params["id"].to_i).to_s
-	puts "---------------"
-	return dao.getComunicador(params["id"].to_i).to_s
-end
-
 get '/programa/:id' do
 	dao = ProgramaDAO.new
 	@programa = dao.getPrograma(params["id"].to_i)
@@ -177,7 +168,9 @@ get '/protected/excluirComunicador/:id' do
 	dao = ComunicadorDAO.new
 	comunicador = dao.getComunicador(params["id"].to_i)
 	dao.deletar(params["id"].to_i)
-	File.delete('./public/uploads/comunicadores/'+comunicador.formaImagem()) if File.exist?('./public/uploads/comunicadores/'+comunicador.formaImagem())
+	if comunicador.extensao != nil
+		File.delete('./public/uploads/comunicadores/'+comunicador.formaImagem()) if File.exist?('./public/uploads/comunicadores/'+comunicador.formaImagem())
+	end
 	erb :home, :layout => :layout_admin
 end
 
