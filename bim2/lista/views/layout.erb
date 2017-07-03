@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).on("click", "#ajax", function(){
+            $.get("http://localhost:4567/ultimos", function(data){
+                alert(data);
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/lista">Lista de presentes</a>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/cadastro">Cadastrar presentes</a>
+                    </li>
+                    <li>
+                        <a href="/lista">Ver presentes</a>
+                    </li>
+                    <li>
+                        <a href="/estatisticas">Ver estatisticas</a>
+                    </li>
+                    <li>
+                        <a href="#" id="ajax">Ver os últimos 3 presentes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+    <%= yield %>
+    	
+    </div>
+</body>
+</html>

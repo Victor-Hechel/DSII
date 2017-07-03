@@ -1,0 +1,23 @@
+CREATE TABLE presentes (id SERIAL PRIMARY KEY,
+			nome VARCHAR(20) NOT NULL,
+			preco FLOAT NOT NULL);
+
+INSERT INTO presentes VALUES(DEFAULT, 'pote', 0.50);
+INSERT INTO presentes VALUES(DEFAULT, 'ps4', 4000);
+INSERT INTO presentes VALUES(DEFAULT, 'boneca', 45.99);
+INSERT INTO presentes VALUES(DEFAULT, 'prancha', 70.67);
+
+
+SELECT * FROM presentes;
+
+SELECT * FROM presentes ORDER BY id DESC LIMIT 3;
+
+SELECT MAX(preco) FROM presentes;
+
+SELECT MIN(preco) FROM presentes;
+
+SELECT AVG(preco) FROM presentes;
+
+SELECT preco, COUNT(preco) AS num_vezes FROM presentes GROUP BY preco ORDER BY num_vezes DESC LIMIT 1;
+
+SELECT COUNT(*) AS vezes FROM presentes

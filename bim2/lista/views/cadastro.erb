@@ -1,0 +1,31 @@
+<h1>Cadastrar Presente</h1>
+
+<form method="post" class="form-horizontal" action="/cadastrar" enctype="multipart/form-data">
+
+	<div class="row">
+		<div class="col-sm-offset-3 col-sm-6" id="fundo">
+			<div class="form-group">
+				<label for="nome" class="col-sm-3 control-label">Nome: </label>
+					<div class="col-sm-8">
+						<input type="text" name="nome" id="nome" class="form-control" required>			
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="nome" class="col-sm-3 control-label">Preço: </label>
+					<div class="col-sm-8">
+						<input type="number" name="preco" id="preco" class="form-control" required>			
+					</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-8">
+					<input type="file" name="foto" accept="image/jpeg" class="btn btn-default btn-block">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-8">
+					<input type="submit" id='btn' value="Cadastrar" class="btn btn-default btn-block">
+				</div>
+			</div>	
+		</div>
+	</div>
+</form>
