@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Equipes</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Equipes</h1>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Equipe</th>
+			<th>Excluir</th>
+			<th>Editar</th>
+		</tr>
+		<% @equipes.each do |equipe| %>
+			<tr>
+				<td><%=equipe.id%></td>
+				<td><%=equipe.nome%></td>
+				<td><a href="/excluirEquipe/<%=equipe.id%>">Excluir</a></td>
+				<td><a href="/editarEquipe/<%=equipe.id%>">Editar</a></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					Integrantes:
+					<ul>
+					<% equipe.personagems.each do |personagem| %>
+						<li><%=personagem.nome%></li>
+					<% end %>
+					</ul>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</body>
+</html>

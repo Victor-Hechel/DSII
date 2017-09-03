@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adicionar Produto</title>
+</head>
+<body>
+	<h1>Editar Produto</h1>
+
+	<form method="post" action="/editarProduto">
+		<label>
+			Produto: <input type="text" name="produto" value="<%=@produto.nome%>">
+		</label>
+		<br>
+		<label>
+			Preço: <input type="number" name="preco" value="<%=@produto.preco%>">
+		</label>
+		<input type="hidden" name="id" value="<%=@produto.id%>">
+		<br>
+		<input type="submit" value="Cadastrar">
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comandas</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Comandas</h1>
+	<table border="1">
+		<tr>
+			<th>Data Abertura</th>
+			<th>Data Fechamento</th>
+			<th>Cliente</th>
+			<th>Garçom</th>
+			<th>Excluir</th>
+			<th>Editar</th>
+			<th>Fechar</th>
+		</tr>
+		<% @comandas.each do |comanda| %>
+			<tr>
+				<td><%=comanda.abertura%></td>
+				<td><%=comanda.encerramento%></td>
+				<td><%=comanda.cliente.nome%></td>
+				<td><%=comanda.garcom.nome%></td>
+				<td><a href="/excluirComanda/<%=comanda.id%>">Excluir</a></td>
+				<td><a href="/editarComanda/<%=comanda.id%>">Editar</a></td>
+				<td><a href="/fecharComanda/<%=comanda.id%>">Fechar</a></td>
+			</tr>
+			<tr>
+				<td colspan="7">
+					<ul>
+						<% total = 0 %>
+						<%comanda.items.each do |item| %>
+							<li><%=item.produto.nome%> - x<%=item.quantidade%> <a href="/removerItem/<%=comanda.id%>/<%=item.produto.id%>">Remover</a></li>
+							<% total = total + (item.produto.preco * item.quantidade) %>
+						<% end %>
+						<li><strong>Total:</strong> <%=total%></li>
+						<li><a href="/comprar/<%=comanda.id%>">Acrescentar Produto</a></li>
+					</ul>
+				</td>
+			</tr>
+			
+		<% end %>
+	</table>
+
+	<br>
+	<a href="/adicionarComanda">Adicionar comanda</a>
+	<br>
+	<a href="/comandasAbertas">Comandas em aberto</a>
+</body>
+</html>

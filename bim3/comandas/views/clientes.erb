@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clientes</title>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>CPF</th>
+			<th>Editar</th>
+			<th>Excluir</th>
+			<% if @counts != nil %>
+				<th>Número de visitas</th>
+			<% i=0 end %>
+		</tr>
+		<% @clientes.each do |cliente| %>
+			<tr>
+				<td><%=cliente.nome%></td>
+				<td><%=cliente.cpf%></td>
+				<td><a href="/excluirCliente/<%=cliente.id%>">Excluir</a></td>
+				<td><a href="/editarCliente/<%=cliente.id%>">Editar</a></td>
+				<% if @counts != nil %>
+					<td><%=@counts[i]%></td>
+				<% i = i + 1 end %>
+			</tr>
+		<% end %>
+	</table>
+
+	<a href="/adicionarCliente">Adicionar Cliente</a>
+	<br>
+	<a href="/clientesToppers">Os Toppers</a>
+</body>
+</html>

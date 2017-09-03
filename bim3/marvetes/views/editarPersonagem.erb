@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar Personagem</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div{
+			display: none;
+		}
+	</style>
+
+</head>
+<body>
+	<h1>Editar Personagem</h1>
+	<form method="post" action="/editarPersonagem">
+		<label>Nome: <input type="text" name="nome" value="<%=@personagem.nome%>"></label>
+		<br>
+		<label>Nome verdadeiro: <input type="text" name="nome_verdadeiro" value="<%=@personagem.nome_verdadeiro%>"></label>
+		<br>
+		<input type="hidden" id="tipoPersonagem" name="tipo" value="<%=@personagem.type%>">
+		Herói<input type="radio" class="tipo" name="tipo" value="heroi">
+		<br>
+		Vilão<input type="radio" class="tipo" name="tipo" value="vilao">
+
+		<br>
+
+		<div id="heroi">
+			<% if @personagem.type.to_s == "Heroi" %>
+				<label>Fãs: <input type="number" name="fas" value="<%=@heroi.fas%>"></label>
+			<% else %>
+				<label>Fãs: <input type="number" name="fas"></label>
+			<% end %>
+		</div>
+
+		<div id="vilao">
+			<% if @personagem.type.to_s == "Vilao" %>
+				<label>Capangas: <input type="number" name="capangas" value="<%=@vilao.capangas%>"></label>
+			<% else %>
+				<label>Capangas: <input type="number" name="capangas"></label>
+			<% end %>
+		</div>
+
+		<input type="hidden" name="id" value="<%=@personagem.id%>">
+
+		<input type="submit" value="Editar">
+
+	</form>
+</body>
+
+	<script type="text/javascript">
+		const tipo = document.getElementById("tipoPersonagem").value;
+		const divVilao = document.getElementById("vilao");
+		const divHeroi = document.getElementById("heroi");
+
+		const elementos = document.querySelectorAll(".tipo");
+
+
+		if (tipo == "Heroi") {
+			divHeroi.style.display = "block";
+			elementos[0].checked = true;
+		}else{
+			divVilao.style.display = "block";
+			elementos[1].checked = true;
+		}
+
+		for (var i = 0; i < elementos.length; i++) {
+			elementos[i].addEventListener("click", function(event){
+				if (event.target.value == "heroi") {
+					divHeroi.style.display = "block";
+					divVilao.style.display = "none";
+				}else{
+					divVilao.style.display = "block";
+					divHeroi.style.display = "none";
+				}
+			});
+		}
+	</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Habilidades</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Habilidades</h1>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Habilidade</th>
+			<th>Nível</th>
+			<th>Descrição</th>
+			<th>Excluir</th>
+			<th>Editar</th>
+		</tr>
+		<% @habilidades.each do |habilidade| %>
+			<tr>
+				<td><%=habilidade.id%></td>
+				<td><%=habilidade.nome%></td>
+				<td><%=habilidade.impacto%></td>
+				<td><%=habilidade.descricao%></td>
+				<td><a href="/excluirHabilidade/<%=habilidade.id%>">Excluir</a></td>
+				<td><a href="/editarHabilidade/<%=habilidade.id%>">Editar</a></td>
+			</tr>
+		<% end %>
+	</table>
+</body>
+</html>

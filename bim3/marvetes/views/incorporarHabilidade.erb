@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Incoropara Deus</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<form method="post" action="/incorporarHabilidade">
+		<select name="personagem">
+			<% @personagens.each do |personagem| %>
+				<option value="<%=personagem.id%>"><%=personagem.nome%></option>
+			<% end %>
+		</select>
+
+		<select name="habilidade">
+			<% @habilidades.each do |habilidade| %>
+				<option value="<%=habilidade.id%>"><%=habilidade.nome%></option>
+			<% end %>
+		</select>
+		<input type="submit" value="Submitirar">	
+	</form>
+	
+</body>
+</html>

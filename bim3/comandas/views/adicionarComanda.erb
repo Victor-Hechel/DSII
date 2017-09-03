@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comanda</title>
+</head>
+<body>
+	<h1>Comanda</h1>
+	<form method="post" action="/adicionarComanda">
+		<select name="cliente">
+			<% @clientes.each do |cliente| %>
+				<option value="<%=cliente.id%>"><%=cliente.nome%></option>
+			<% end %>
+		</select>
+
+		<br>
+
+		<select name="garcom">
+			<% @garcons.each do |garcom| %>
+				<option value="<%=garcom.id%>"><%=garcom.nome%></option>
+			<% end %>
+		</select>
+		
+		<br>
+
+		<input type="submit" value="Criar Comanda">
+	</form>
+</body>
+</html>

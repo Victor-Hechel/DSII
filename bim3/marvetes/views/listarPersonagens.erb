@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personagens</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Personagens</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Nome verdadeiro</th>
+			<th>Equipe</th>
+			<th>Tipo</th>
+			<th>Excluir</th>
+			<th>Editar</th>
+		</tr>
+		<% @personagens.each do |personagem| %>
+			<tr>
+				<td><%=personagem.id%></td>
+				<td><%=personagem.nome%></td>
+				<td><%=personagem.nome_verdadeiro%></td>
+				<td><%=personagem.equipe.nome%></td>
+				<td><%=personagem.type%></td>
+				<td><a href="/excluirPersonagem/<%=personagem.id%>">Excluir</a></td>
+				<td><a href="/editarPersonagem/<%=personagem.id%>">Editar</a></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					Habilidades:
+					<ul>
+						<% personagem.habilidades.each do |habilidade| %>
+							<li><%=habilidade.nome%> - <a href="/removerHabilidade/<%=personagem.id%>/<%=habilidade.id%>">Remover</a></li>
+						<% end %>	
+					</ul>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</body>
+</html>

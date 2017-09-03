@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar Cliente</title>
+</head>
+<body>
+	<h1>Editar Cliente</h1>
+
+	<form method="post" action="/editarCliente">
+		<label>Nome: <input type="text" name="nome" value="<%=@cliente.nome%>"></label>
+		<br>
+		<label>CPF: <input type="number" name="cpf" value="<%=@cliente.cpf%>"></label>
+		<br>
+		<input type="hidden" name="id" value="<%=@cliente.id%>">
+		<input type="submit" value="Editar">
+	</form>
+</body>
+</html>

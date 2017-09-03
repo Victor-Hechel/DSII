@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar Habilidade</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Editar Habilidade</h1>
+	<form method="post" action="/editarHabilidade">
+		<label>Nome: <input type="text" name="nome" value="<%=@habilidade.nome%>"></label>
+		<br>
+		<label>Nível: 
+			<select name="nivel">
+				<option value="Leve">Leve</option>
+				<option value="Moderada">Moderada</option>
+				<option value="Forte">Forte</option>
+			</select>
+		</label>
+
+		<br>
+
+		<label>Descrição: 
+			<textarea name="descricao"><%=@habilidade.descricao%></textarea>
+		</label>
+
+		<br>
+
+		<input type="hidden" id="impacto" value="<%=@habilidade.impacto%>">
+		<input type="hidden" name="id" value="<%=@habilidade.id%>">
+
+		<input type="submit" value="Editar">
+	</form>
+
+	<script type="text/javascript">
+		const impacto = document.getElementById("impacto").value;
+		document.querySelector("option[value="+impacto+"]").selected = true;
+	</script>
+</body>
+</html>

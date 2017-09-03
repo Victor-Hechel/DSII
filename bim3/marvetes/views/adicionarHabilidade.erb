@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adicionar Habilidade</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Adicionar Habilidade</h1>
+
+	<form method="post" action="/adicionarHabilidade">
+		<label>Nome: <input type="text" name="nome"></label>
+		<br>
+		<label>Nível: 
+			<select name="nivel">
+				<option value="Leve">Leve</option>
+				<option value="Moderada">Moderada</option>
+				<option value="Forte">Forte</option>
+			</select>
+		</label>
+
+		<br>
+
+		<label>Descrição: 
+			<textarea name="descricao"></textarea>
+		</label>
+
+		<br>
+
+		<input type="submit" value="Criar Habilidade">
+	</form>
+</body>
+</html>

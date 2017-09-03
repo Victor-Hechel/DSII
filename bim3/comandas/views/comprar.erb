@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comprar</title>
+</head>
+<body>
+	<h1>Comprar</h1>
+	<form method="post" action="/comprar">
+		<select name="produto">
+			<% @produtos.each do |produto| %>
+				<option value="<%=produto.id%>"><%=produto.nome%> - R$ <%=produto.preco%></option>
+			<% end %>
+		</select>
+		<br>
+		<input type="hidden" name="id" value="<%=@id%>">
+		<input type="submit" value="Comprar">
+	</form>
+</body>
+</html>

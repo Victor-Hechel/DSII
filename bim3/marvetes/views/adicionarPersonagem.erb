@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adicionar Personagem</title>
+	<style type="text/css">
+		div{
+			display: none;
+		}
+	</style>
+	
+</head>
+<body>
+	<h1>Adicionar Personagem</h1>
+
+	<form method="post" action="/adicionarPersonagem">
+
+		<label>Nome: <input type="text" name="nome"></label>
+
+		<br>
+
+		<label>Nome verdadeiro: <input type="text" name="nome_verdadeiro"></label>
+
+		<br>
+
+		<label>Equipes: 
+			<select name="equipe">
+				<% @equipes.each do |equipe| %>
+					<option value="<%=equipe.id%>"><%=equipe.nome%></option>
+				<% end %>
+			</select>
+		</label>
+		<br>
+		<label>Habilidades: 
+			<select name="habilidade">
+				<% @habilidades.each do |habilidade| %>
+					<option value="<%=habilidade.id%>"><%=habilidade.nome%></option>
+				<% end %>
+			</select>
+		</label>
+		<br>
+
+		<label>Herói <input type="radio" name="tipo" value="heroi" class="tipo"></label>
+		<br>
+		<label>Vilão <input type="radio" name="tipo" value="vilao" class="tipo"></label>
+
+		<div id="heroi">
+			<label>Fãs: <input type="number" name="fas"></label>
+		</div>
+
+		<div id="vilao">
+			<label>Capangas: <input type="number" name="capangas"></label>
+		</div>
+
+		<input type="submit" value="Criar Herói">
+
+	</form>
+
+	<script type="text/javascript">
+		const elementos = document.querySelectorAll(".tipo");
+		for (var i = 0; i < elementos.length; i++) {
+			elementos[i].addEventListener("click", function(event){
+				if (event.target.value == "heroi") {
+					document.getElementById("heroi").style.display = "block";
+					document.getElementById("vilao").style.display = "none";
+				}else{
+					document.getElementById("vilao").style.display = "block";
+					document.getElementById("heroi").style.display = "none";
+				}
+			});
+		}
+	</script>
+</body>
+</html>

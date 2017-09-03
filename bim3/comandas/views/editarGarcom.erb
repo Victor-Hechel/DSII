@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar Garçom</title>
+</head>
+<body>
+	<h1>Editar Garçom</h1>
+	<form method="post" action="/editarGarcom">
+		<label>Nome: <input type="text" name="nome" value="<%=@garcom.nome%>"></label>
+		<br>
+		<label>CPF: <input type="number" name="cpf" value="<%=@garcom.cpf%>"></label>
+		<br>
+		<input type="hidden" name="id" value="<%=@garcom.id%>">
+		<input type="submit" value="Editar">
+	</form>
+</body>
+</html>

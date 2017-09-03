@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Garçons</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Garçons</h1>
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>CPF</th>
+			<th>Data de Ingresso</th>
+			<th>Data de Demissão</th>
+			<th>Excluir</th>
+			<th>Editar</th>
+			<th>Demitir</th>
+			<% if @counts != nil %>
+				<th>Número de comandas</th>
+			<% i=0 end %>
+		</tr>
+		<% @garcons.each do |garcom| %>
+			<tr>
+				<td><%=garcom.nome%></td>
+				<td><%=garcom.cpf%></td>
+				<td><%=garcom.dataIngresso%></td>
+				<td><%=garcom.dataDesligamento%></td>
+				<td><a href="/excluirGarcom/<%=garcom.id%>">Excluir</a></td>
+				<td><a href="/editarGarcom/<%=garcom.id%>">Editar</a></td>
+				<td><a href="/desligarGarcom/<%=garcom.id%>">Demitir</a></td>
+				<% if @counts != nil %>
+					<td><%=@counts[i]%></td>
+				<% i = i + 1 end %>
+			</tr>
+		<% end %>
+	</table>
+
+	<br>
+	<a href="/adicionarGarcom">Adicionar Garçom</a>
+	<br>
+	<a href="/garconsToppers">Só os topper</a>
+</body>
+</html>

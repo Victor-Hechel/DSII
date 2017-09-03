@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar Comanda</title>
+</head>
+<body>
+	<h1>Editar Comanda</h1>
+	<form method="post" action="/editarComanda">
+		<select name="cliente">
+			<% @clientes.each do |cliente| %>
+				<% if cliente.id == @comanda.cliente_id %>
+					<option value="<%=cliente.id%>" selected><%=cliente.nome%></option>
+				<% else %>
+					<option value="<%=cliente.id%>"><%=cliente.nome%></option>
+				<% end %>
+			<% end %>
+		</select>
+
+		<br>
+
+		<select name="garcom">
+			<% @garcons.each do |garcom| %>
+				<% if garcom.id == @comanda.garcom_id %>
+					<option value="<%=garcom.id%>" selected><%=garcom.nome%></option>
+				<% else %>
+					<option value="<%=garcom.id%>"><%=garcom.nome%></option>
+				<% end %>
+			<% end %>
+		</select>
+
+		<input type="hidden" name="id" value="<%=@comanda.id%>">
+		<br>
+
+		<input type="submit" value="Editar">
+	</form>
+</body>
+</html>
